@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<configuration scan="true" scanPeriod="30 seconds">  
+      
+    <timestamp key="startTime" datePattern="yyyyMMdd'T'HHmmss"/>  
+      <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <file>${PDX_HOME}/logs/daap-coordinator-${startTime}.log</file>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">  
+             <fileNamePattern>daap-coordinator.%i.log.zip</fileNamePattern>  
+             <minIndex>1</minIndex>  
+             <maxIndex>3</maxIndex>  
+        </rollingPolicy>  
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">  
+            <maxFileSize>100MB</maxFileSize>  
+        </triggeringPolicy>  
+        <encoder>  
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg [%file:%line] %n</pattern>  
+        </encoder>  
+    </appender>  
+      
+    <logger name="com.pdxchg.coordinator" level="DEBUG" />  
+    <root level="ERROR">  
+        <appender-ref ref="FILE" />  
+    </root>  
+</configuration>  

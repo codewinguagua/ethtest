@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="daap-coordinator"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+        metadata-complete="true"
+        version="2.5">
+  <display-name>service server</display-name>
+
+  <!-- Do not use an XML-based Spring configuration, but annotation only. -->
+  <!-- <context-param>
+    <param-name>contextClass</param-name>
+    <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+  </context-param>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>com.pdx.service.config.SpringConfiguration</param-value>
+  </context-param> -->
+  <listener>
+    <listener-class>com.pdxchg.coordinator.ContextListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>com.pdxchg.coordinator.LogbackConfigLocationListener</listener-class>
+  </listener>
+</web-app>
