@@ -1,2 +1,2 @@
 # ethtest
-test--etc--eth
+this is a coordinator project
